@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lily's Costa del Sol Holiday</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun: #E8A020;
+    --sea: #1A6B8A;
+    --sea-light: #2A8BAA;
+    --sand: #F5EDD8;
+    --terra: #C4622D;
+    --white: #FFFFFF;
+    --text-dark: #1C2B35;
+    --text-mid: #4A5D6A;
+    --text-light: #7A8F9A;
+    --card-bg: #FFFFFF;
+    --page-bg: #F7F3EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--page-bg);
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #1A4A5E 0%, #1A6B8A 50%, #2699BB 100%);
+    padding: 3rem 1.5rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 60px;
+    background: var(--page-bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-flag {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 8vw, 3rem);
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+  }
+  .hero-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+  .hero-dates {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  /* QUICK INFO CARDS */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .info-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1rem 1rem;
+    box-shadow: 0 2px 12px rgba(26,107,138,0.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+  .info-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .info-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .info-value {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .info-value.small { font-size: 0.8rem; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .section-divider {
+    width: 40px;
+    height: 3px;
+    background: var(--sun);
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+  }
+
+  /* DAY CARDS */
+  .days-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 2.5rem;
+  }
+  .day-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .day-card:hover, .day-card:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,107,138,0.15);
+  }
+  .day-num {
+    background: var(--sea);
+    color: var(--white);
+    width: 58px;
+    min-width: 58px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.75rem 0;
+  }
+  .day-num span {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-top: 2px;
+  }
+  .day-info {
+    padding: 0.75rem 1rem;
+    flex: 1;
+  }
+  .day-date {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+  }
+  .day-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+  }
+  .day-desc {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    line-height: 1.4;
+  }
+  .day-arrow {
+    padding: 0 1rem 0 0.5rem;
+    color: var(--sea-light);
+    font-size: 1.1rem;
+  }
+
+  /* FLIGHT CARD */
+  .flight-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-bottom: 2.5rem;
+  }
+  .flight-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+  }
+  .flight-row + .flight-row {
+    border-top: 1px dashed #E0E8EE;
+  }
+  .flight-badge {
+    background: var(--sea);
+    color: white;
+    border-radius: 8px;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    min-width: 52px;
+    text-align: center;
+  }
+  .flight-badge.return { background: var(--terra); }
+  .flight-details { flex: 1; }
+  .flight-route {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .flight-route .arrow { color: var(--sun); font-size: 0.8rem; }
+  .flight-meta {
+    font-size: 0.73rem;
+    color: var(--text-mid);
+    margin-top: 0.15rem;
+  }
+  .flight-time {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sea);
+    text-align: right;
+  }
+
+  /* CONTACTS */
+  .contacts-card {
+    background: linear-gradient(135deg, #1A4A5E 0%, #1A6B8A 100%);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .contacts-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .contact-item:last-child { border-bottom: none; }
+  .contact-icon { font-size: 1.1rem; }
+  .contact-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  .contact-value {
+    font-size: 0.88rem;
+    color: var(--white);
+    font-weight: 400;
+  }
+  .contact-value a {
+    color: #7DD8F5;
+    text-decoration: none;
+  }
+
+  /* TIPS */
+  .tips-card {
+    background: #FFF8EE;
+    border: 1px solid #F5DFB0;
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .tips-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #7A4E00;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .tip-item {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.4;
+  }
+  .tip-dot {
+    color: var(--sun);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: -1px;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="hero-flag">🇪🇸</span>
+  <h1>Lily's Costa<br>del Sol</h1>
+  <p class="hero-subtitle">Costa del Sol · Nerja · Málaga · Granada</p>
+  <div class="hero-dates">27 May – 3 June 2026 &nbsp;·&nbsp; 8 Days</div>
+</div>
+
+<div class="content">
+
+  <!-- QUICK INFO -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-icon">🏨</div>
+      <div>
+        <div class="info-label">Hotel</div>
+        <div class="info-value small">Ibersol Almuñécar Beach &amp; Spa</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🍽️</div>
+      <div>
+        <div class="info-label">Board</div>
+        <div class="info-value">Half Board</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🌙</div>
+      <div>
+        <div class="info-label">Nights</div>
+        <div class="info-value">7 nights</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">✈️</div>
+      <div>
+        <div class="info-label">Airline</div>
+        <div class="info-value">Aer Lingus</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🧳</div>
+      <div>
+        <div class="info-label">Luggage</div>
+        <div class="info-value small">1 × 10kg checked bag</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">📋</div>
+      <div>
+        <div class="info-label">Booking Ref</div>
+        <div class="info-value">A520890</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLIGHTS -->
+  <div class="section-title">Your Flights</div>
+  <div class="section-divider"></div>
+  <div class="flight-card">
+    <div class="flight-row">
+      <div class="flight-badge">OUT</div>
+      <div class="flight-details">
+        <div class="flight-route">Dublin T2 <span class="arrow">→</span> Málaga</div>
+        <div class="flight-meta">Wed 27 May · EI586 · Check in by 14:10</div>
+      </div>
+      <div class="flight-time">16:10<br><span style="font-size:0.7rem;color:#aaa;font-family:Lato">→ 20:20</span></div>
+    </div>
+    <div class="flight-row">
+      <div class="flight-badge return">HOME</div>
+      <div class="flight-details">
+        <div class="flight-route">Málaga <span class="arrow">→</span> Dublin T2</div>
+        <div class="flight-meta">Wed 3 Jun · EI587 · Depart hotel ~17:30</div>
+      </div>
+      <div class="flight-time" style="color: var(--terra);">21:00<br><span style="font-size:0.7rem;color:#aaa;font-family:Lato">→ 23:10</span></div>
+    </div>
+  </div>
+
+  <!-- IMPORTANT NOTES -->
+  <div class="section-title">Before You Go</div>
+  <div class="section-divider"></div>
+
+  <div style="background:#EEF7FD;border:1px solid #B8DAEE;border-radius:16px;padding:1.25rem;margin-bottom:0.75rem;">
+    <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#1A4A5E;font-weight:600;margin-bottom:0.65rem;">📱 Online Check-in</div>
+    <ul style="list-style:none;">
+      <li style="display:flex;gap:0.6rem;padding:0.4rem 0;font-size:0.85rem;color:#4A5D6A;border-bottom:1px solid #DCE8F0;">
+        <span style="flex-shrink:0;">✉️</span>
+        <span>Your <strong>airline PNR booking reference</strong> will be emailed to you <strong>2 days before departure</strong> (Mon 25 May) with check-in instructions</span>
+      </li>
+      <li style="display:flex;gap:0.6rem;padding:0.4rem 0;font-size:0.85rem;color:#4A5D6A;border-bottom:1px solid #DCE8F0;">
+        <span style="flex-shrink:0;">🧳</span>
+        <span>Your checked bag may not show online until <strong>1 day before</strong> — don't worry, it's confirmed if you paid for it</span>
+      </li>
+      <li style="display:flex;gap:0.6rem;padding:0.4rem 0;font-size:0.85rem;color:#4A5D6A;border-bottom:1px solid #DCE8F0;">
+        <span style="flex-shrink:0;">🖨️</span>
+        <span><strong>No boarding cards</strong> will be sent by Travel Department or the hotel — check in online or at the airport desk</span>
+      </li>
+      <li style="display:flex;gap:0.6rem;padding:0.4rem 0;font-size:0.85rem;color:#4A5D6A;">
+        <span style="flex-shrink:0;">✈️</span>
+        <span>Return flight check-in: Travel Department will email you separately when it opens</span>
+      </li>
+    </ul>
+  </div>
+
+  <div style="background:#FFF3EE;border:1px solid #F5C8A8;border-radius:16px;padding:1.25rem;margin-bottom:2.5rem;">
+    <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#7A2E00;font-weight:600;margin-bottom:0.65rem;">⚠️ Luggage Rules (Aer Lingus)</div>
+    <ul style="list-style:none;">
+      <li style="display:flex;gap:0.6rem;padding:0.4rem 0;font-size:0.85rem;color:#4A5D6A;border-bottom:1px solid #F5DFD0;">
+        <span style="flex-shrink:0;">👜</span>
+        <span><strong>Hand baggage:</strong> 1 small bag only — must fit under the seat (25×33×20cm). No overhead bin bag.</span>
+      </li>
+      <li style="display:flex;gap:0.6rem;padding:0.4rem 0;font-size:0.85rem;color:#4A5D6A;border-bottom:1px solid #F5DFD0;">
+        <span style="flex-shrink:0;">🧳</span>
+        <span><strong>Checked bag:</strong> 1 × 10kg included. Max dimensions: 55×40×24cm</span>
+      </li>
+      <li style="display:flex;gap:0.6rem;padding:0.4rem 0;font-size:0.85rem;color:#4A5D6A;">
+        <span style="flex-shrink:0;">💶</span>
+        <span><strong>Extra/oversize bags</strong> at the gate cost <strong>€35 each way</strong> — paid directly to Aer Lingus</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- DAY BY DAY -->
+  <div class="section-title">Day by Day</div>
+  <div class="section-divider"></div>
+  <div class="days-list">
+
+    <a class="day-card" href="day1.html">
+      <div class="day-num">1<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Wednesday, 27 May</div>
+        <div class="day-title">✈️ Travel to Spain</div>
+        <div class="day-desc">Fly Dublin → Málaga. Transfer to hotel (~1h15m)</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+    <a class="day-card" href="day2.html">
+      <div class="day-num">2<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Thursday, 28 May</div>
+        <div class="day-title">🌊 Nerja</div>
+        <div class="day-desc">Guided tour, Balcón de Europa, tapas &amp; drinks included</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+    <a class="day-card" href="day3.html">
+      <div class="day-num">3<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Friday, 29 May</div>
+        <div class="day-title">🫒 Lecrín Valley, Salobreña &amp; Frigiliana</div>
+        <div class="day-desc">Hidden valley, olive oil museum, white village wine tasting</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+    <a class="day-card" href="day4.html">
+      <div class="day-num">4<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Saturday, 30 May</div>
+        <div class="day-title">☀️ Free Day</div>
+        <div class="day-desc">Relax, explore or ask guide for activity suggestions</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+    <a class="day-card" href="day5.html">
+      <div class="day-num">5<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Sunday, 31 May</div>
+        <div class="day-title">🎨 Málaga City</div>
+        <div class="day-desc">Gibralfaro viewpoint, Picasso Museum &amp; Cathedral</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+    <a class="day-card" href="day6.html">
+      <div class="day-num">6<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Monday, 1 June</div>
+        <div class="day-title">☀️ Free Day</div>
+        <div class="day-desc">Relax at hotel or last-minute souvenir shopping</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+    <a class="day-card" href="day7.html">
+      <div class="day-num">7<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Tuesday, 2 June</div>
+        <div class="day-title">🏰 Granada &amp; La Alhambra</div>
+        <div class="day-desc">Guided tour, Generalife Gardens, UNESCO Alhambra complex</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+    <a class="day-card" href="day8.html">
+      <div class="day-num">8<span>Day</span></div>
+      <div class="day-info">
+        <div class="day-date">Wednesday, 3 June</div>
+        <div class="day-title">🏠 Return Home</div>
+        <div class="day-desc">Check out, leisurely morning, fly home from Málaga</div>
+      </div>
+      <div class="day-arrow">›</div>
+    </a>
+
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="contacts-card">
+    <h3>📞 Important Contacts</h3>
+    <div class="contact-item">
+      <div class="contact-icon">🧭</div>
+      <div>
+        <div class="contact-label">Local Guide</div>
+        <div class="contact-value">Claire &nbsp;·&nbsp; <a href="tel:0034678686088">00 34 678 686 088</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🚨</div>
+      <div>
+        <div class="contact-label">Emergency (Move in Spain)</div>
+        <div class="contact-value"><a href="tel:0034660363152">00 34 660 363 152</a><br><a href="tel:0034660366152">00 34 660 366 152</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🏨</div>
+      <div>
+        <div class="contact-label">Hotel</div>
+        <div class="contact-value">Ibersol Almuñécar Beach &amp; Spa<br>Paseo San Cristóbal s/n, 18690</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="tips-card">
+    <h3>☀️ Good to Know</h3>
+    <div class="tip-item"><span class="tip-dot">·</span> Spain is <strong>1 hour ahead</strong> of Irish time (CEST)</div>
+    <div class="tip-item"><span class="tip-dot">·</span> Breakfast &amp; dinner included every day at the hotel</div>
+    <div class="tip-item"><span class="tip-dot">·</span> No vaccinations required</div>
+    <div class="tip-item"><span class="tip-dot">·</span> EU passport valid for trip duration — no visa needed</div>
+    <div class="tip-item"><span class="tip-dot">·</span> Tip suggestion: €1–2/day driver, €2–3/day guide</div>
+    <div class="tip-item"><span class="tip-dot">·</span> Wear sturdy shoes for Frigiliana — cobbled hilly streets!</div>
+    <div class="tip-item"><span class="tip-dot">·</span> 10kg checked bag: max 55×40×24cm (Aer Lingus)</div>
+  </div>
+
+</div>
+
+<footer>Prepared with love for Mrs Lily Lowry &nbsp;🌸&nbsp; Have a wonderful holiday!</footer>
+
+</body>
+</html>

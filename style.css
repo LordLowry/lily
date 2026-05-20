@@ -1,0 +1,227 @@
+:root {
+  --sun: #E8A020;
+  --sea: #1A6B8A;
+  --sea-light: #2A8BAA;
+  --sea-dark: #1A4A5E;
+  --sand: #F5EDD8;
+  --terra: #C4622D;
+  --white: #FFFFFF;
+  --text-dark: #1C2B35;
+  --text-mid: #4A5D6A;
+  --text-light: #7A8F9A;
+  --page-bg: #F7F3EC;
+  --card-bg: #FFFFFF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--page-bg);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* NAV */
+.top-nav {
+  background: var(--sea-dark);
+  padding: 0.85rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.back-btn {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.back-btn:hover { color: white; }
+
+/* HERO */
+.day-hero {
+  padding: 2rem 1.5rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.day-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 50px;
+  background: var(--page-bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.day-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.9);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.day-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 7vw, 2.5rem);
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.day-hero .hero-date {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+.hero-emoji {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* CONTENT */
+.content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 4rem;
+}
+
+/* CARDS */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card-body {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.card-body p + p { margin-top: 0.65rem; }
+
+/* HIGHLIGHT CARD */
+.highlight-card {
+  border-left: 4px solid var(--sun);
+  background: #FFFBF2;
+}
+.highlight-card .card-title { color: #7A4E00; }
+
+/* INFO CARD */
+.info-card {
+  background: linear-gradient(135deg, var(--sea-dark) 0%, var(--sea) 100%);
+}
+.info-card .card-title { color: white; }
+.info-card .card-body { color: rgba(255,255,255,0.8); }
+
+/* ACTIVITY LIST */
+.activity-list {
+  list-style: none;
+  margin-top: 0.25rem;
+}
+.activity-list li {
+  display: flex;
+  gap: 0.65rem;
+  padding: 0.55rem 0;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+  border-bottom: 1px solid #F0EDE6;
+}
+.activity-list li:last-child { border-bottom: none; }
+.activity-list .act-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+  margin-top: 1px;
+}
+.activity-list .act-label { font-weight: 700; color: var(--text-dark); }
+
+/* INCLUDED BADGE */
+.included-tag {
+  display: inline-block;
+  background: #E8F5EE;
+  color: #1A6B40;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+/* TIP BOX */
+.tip-box {
+  background: #EEF7FD;
+  border: 1px solid #B8DAEE;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #1A4A5E;
+  display: flex;
+  gap: 0.65rem;
+  line-height: 1.5;
+}
+.tip-box .tip-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+/* DAY NAV */
+.day-nav {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.nav-btn {
+  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid #DCE5EA;
+  border-radius: 12px;
+  padding: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--sea);
+  transition: background 0.15s;
+}
+.nav-btn:hover { background: #EEF6FA; }
+.nav-btn.prev::before { content: '‹ '; }
+.nav-btn.next::after { content: ' ›'; }
+.nav-btn .nav-label {
+  display: block;
+  font-weight: 400;
+  color: var(--text-light);
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}

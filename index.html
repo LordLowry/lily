@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vilamoura Golf Trip 2026</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green-deep:   #0d3b1e;
+            --green-mid:    #155d30;
+            --green-light:  #e8f5ee;
+            --gold:         #b8935a;
+            --gold-light:   #f5e6d0;
+            --cream:        #faf8f4;
+            --dark:         #111a13;
+            --text:         #2c3e30;
+            --muted:        #6b7c6e;
+            --white:        #ffffff;
+            --shadow:       0 4px 24px rgba(13,59,30,0.10);
+            --shadow-lg:    0 12px 48px rgba(13,59,30,0.15);
+            --radius:       14px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(13,59,30,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0 20px;
+        }
+        .nav-inner {
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 10px 0;
+        }
+        .nav-inner::-webkit-scrollbar { display: none; }
+        .nav-inner a {
+            flex-shrink: 0;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .nav-inner a:hover, .nav-inner a.active {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100svh;
+            background:
+                linear-gradient(rgba(0,0,0,0.42), rgba(13,59,30,0.70)),
+                url("https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?auto=format&fit=crop&w=1200&q=80")
+                center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 24px 60px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            animation: fadeDown 0.7s ease both;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 8vw, 4rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 14px;
+            animation: fadeDown 0.7s 0.1s ease both;
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 40px;
+            animation: fadeDown 0.7s 0.2s ease both;
+        }
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            animation: fadeDown 0.7s 0.3s ease both;
+        }
+        .pill {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--white);
+            font-size: 0.82rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        @keyframes fadeDown {
+            from { opacity:0; transform: translateY(-16px); }
+            to   { opacity:1; transform: translateY(0); }
+        }
+
+        /* ── SECTIONS ── */
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 0 16px;
+        }
+
+        .section {
+            padding: 56px 0 0;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .section-label::before {
+            content: '';
+            display: inline-block;
+            width: 20px; height: 2px;
+            background: var(--gold);
+            border-radius: 1px;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.7rem, 5vw, 2.2rem);
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 28px;
+            line-height: 1.2;
+        }
+
+        /* ── CARDS ── */
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(13,59,30,0.06);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .card-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: var(--green-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--green-light);
+            font-size: 0.9rem;
+        }
+        .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .info-row:first-child { padding-top: 0; }
+        .info-label { color: var(--muted); }
+        .info-value { font-weight: 600; color: var(--dark); text-align: right; }
+        .info-value.gold { color: var(--gold); }
+        .info-value.green { color: var(--green-mid); }
+
+        a.link {
+            color: var(--green-mid);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(21,93,48,0.3);
+        }
+
+        /* ── TABLE ── */
+        .table-wrap { overflow-x: auto; margin: 0 -4px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 320px;
+        }
+        th {
+            background: var(--green-deep);
+            color: var(--white);
+            padding: 10px 12px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+        }
+        th:first-child { border-radius: 8px 0 0 0; }
+        th:last-child  { border-radius: 0 8px 0 0; }
+        td {
+            padding: 10px 12px;
+            text-align: center;
+            border-bottom: 1px solid var(--green-light);
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: var(--green-light); }
+        .note {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* ── TOTAL BANNER ── */
+        .total-banner {
+            background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--white);
+            margin: 28px 0 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .total-banner::before {
+            content: '⛳';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.07;
+            right: -20px; bottom: -20px;
+            line-height: 1;
+        }
+        .total-banner .label {
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-bottom: 8px;
+        }
+        .total-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .total-banner p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ── FOOD CARDS ── */
+        .food-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(13,59,30,0.06);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .food-emoji {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: var(--gold-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .food-body { flex: 1; min-width: 0; }
+        .food-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+        .food-type {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+        .food-desc {
+            font-size: 0.84rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .food-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .food-tag {
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .tag-stars {
+            background: #fef9c3;
+            color: #854d0e;
+        }
+        .tag-hours {
+            background: var(--green-light);
+            color: var(--green-deep);
+        }
+        .tag-price {
+            background: var(--gold-light);
+            color: #7c4a00;
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(13,59,30,0.12), transparent);
+            margin: 0;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 56px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+        }
+        footer span { color: rgba(255,255,255,0.8); }
+
+        /* ── MOBILE TWEAKS ── */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2rem; }
+            .card { padding: 20px; }
+            th, td { padding: 8px 8px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <a href="#pre-travel">Pre-Travel</a>
+        <a href="#arrival">Arrival</a>
+        <a href="#pubs">Pubs</a>
+        <a href="#food">Food & Drink</a>
+        <a href="#courses">Golf Courses</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">🇵🇹 Portugal 2026</div>
+    <h1>Vilamoura<br>Golf Trip</h1>
+    <p class="hero-sub">9 – 13 April 2026</p>
+    <div class="hero-pills">
+        <span class="pill">✈️ Dublin → Faro</span>
+        <span class="pill">⛳ 4 Rounds</span>
+        <span class="pill">🏨 Dom Pedro Portobelo</span>
+    </div>
+</section>
+
+<main>
+
+<!-- PRE-TRAVEL -->
+<div id="pre-travel" class="container">
+    <div class="section">
+        <div class="section-label">Before You Go</div>
+        <h2>Pre-Travel Costs</h2>
+
+        <div class="cards">
+
+            <!-- Accommodation -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🏨</div>
+                    <h3>Accommodation</h3>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Sharing Room</span>
+                    <span class="info-value green">€250 <small style="font-weight:400;color:var(--muted)">/ person</small></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Single Room</span>
+                    <span class="info-value green">€450 <small style="font-weight:400;color:var(--muted)">/ person</small></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Breakfast</span>
+                    <span class="info-value">Included ✓</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Golf Transfers</span>
+                    <span class="info-value">Included ✓</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Hotel</span>
+                    <span class="info-value"><a class="link" href="https://portobelo.dompedro.com/en/" target="_blank">Dom Pedro Portobelo ↗</a></span>
+                </div>
+            </div>
+
+            <!-- Golf -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">⛳</div>
+                    <h3>Golf Schedule</h3>
+                </div>
+                <div class="info-row" style="margin-bottom:12px;">
+                    <span class="info-label">Package Total</span>
+                    <span class="info-value green">€526 / person</span>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Course</th>
+                                <th>Holes</th>
+                                <th>Time</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09 Apr</td>
+                                <td>Millennium</td>
+                                <td>Twilight*</td>
+                                <td>15:30</td>
+                                <td>€103</td>
+                            </tr>
+                            <tr>
+                                <td>10 Apr</td>
+                                <td>Laguna</td>
+                                <td>18</td>
+                                <td>10:10</td>
+                                <td>€141</td>
+                            </tr>
+                            <tr>
+                                <td>11 Apr</td>
+                                <td>Pinhal</td>
+                                <td>18</td>
+                                <td>10:10</td>
+                                <td>€141</td>
+                            </tr>
+                            <tr>
+                                <td>12 Apr</td>
+                                <td>Millennium</td>
+                                <td>18</td>
+                                <td>14:00</td>
+                                <td>€141</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="note">* Twilight round – 18 holes not guaranteed</p>
+            </div>
+
+            <!-- Flights -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">✈️</div>
+                    <h3>Flights & Baggage</h3>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Dublin → Faro</span>
+                    <span class="info-value">Aer Lingus · 07:35–10:30</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Faro → Dublin</span>
+                    <span class="info-value">Ryanair · 09:20–12:15</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Includes</span>
+                    <span class="info-value" style="font-size:0.82rem;">Flights + Golf Clubs + 10kg Bag</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Total</span>
+                    <span class="info-value green">€332 / person</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Total -->
+        <div class="total-banner">
+            <div class="label">Total Pre-Holiday Cost</div>
+            <h3>€1,108 <span style="opacity:0.6;font-size:1rem;">sharing</span></h3>
+            <p>€1,308 if single room</p>
+        </div>
+    </div>
+</div>
+
+<div class="divider" style="margin:40px 0 0;"></div>
+
+<!-- ARRIVAL -->
+<div id="arrival" class="container">
+    <div class="section">
+        <div class="section-label">On the Ground</div>
+        <h2>Arrival Costs</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🚌</div>
+                    <h3>Airport Transfers</h3>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Faro Airport ↔ Hotel</span>
+                    <span class="info-value green">€25 / person</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🚗</div>
+                    <h3>Golf Buggies</h3>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Cost per buggy / round</span>
+                    <span class="info-value">€30</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Rounds</span>
+                    <span class="info-value">4 rounds</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Total (shared buggy)</span>
+                    <span class="info-value green">€70 / person</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="divider" style="margin:40px 0 0;"></div>
+
+<!-- PUBS -->
+<div id="pubs" class="container">
+    <div class="section">
+        <div class="section-label">Where to Watch</div>
+        <h2>Pubs & Bars</h2>
+
+        <!-- Sports alert banner -->
+        <div style="background:linear-gradient(135deg,#1a3a0f,#2d6a1f);border-radius:var(--radius);padding:20px 22px;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;">
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">📺 Sport on while you're there</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:8px 14px;color:#fff;font-size:0.82rem;line-height:1.4;">
+                    <strong>⛳ The Masters</strong><br>
+                    <span style="opacity:0.8;font-size:0.75rem;">Thu 9 – Sun 12 Apr · Augusta</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:8px 14px;color:#fff;font-size:0.82rem;line-height:1.4;">
+                    <strong>🐎 Grand National</strong><br>
+                    <span style="opacity:0.8;font-size:0.75rem;">Sat 12 Apr · Aintree</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:8px 14px;color:#fff;font-size:0.82rem;line-height:1.4;">
+                    <strong>⚽ Football</strong><br>
+                    <span style="opacity:0.8;font-size:0.75rem;">Premier League & Champions League</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards">
+
+            <div class="food-card">
+                <div class="food-emoji">🍺</div>
+                <div class="food-body">
+                    <div class="food-type">Sports Bar · Marina</div>
+                    <div class="food-name">Hole in One</div>
+                    <div class="food-desc">The dedicated sports bar on the marina — and with a name like that, it was made for this trip. Multiple screens showing up to 5 simultaneous football games. Cold beer at €4, open from 9am every day. Also does karaoke every night if the lads fancy it after the golf.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.4 · 396 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 9am – 1am</span>
+                        <span class="food-tag tag-price">📺 Masters · National · Football</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🏌️</div>
+                <div class="food-body">
+                    <div class="food-type">Sports Bar · Marina</div>
+                    <div class="food-name">Masters Sports Bar</div>
+                    <div class="food-desc">The name says it all — ideal for watching The Masters all week. A long-standing marina favourite, open from 8:30am so you can catch the early morning coverage over breakfast. Popular with returning golf groups year after year, great cocktails and decent food too.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.1 · 399 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 8:30am – 2am</span>
+                        <span class="food-tag tag-price">📺 Masters · Football</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">⛳</div>
+                <div class="food-body">
+                    <div class="food-type">Classic Bar · Golf-Themed</div>
+                    <div class="food-name">The 19th Hole</div>
+                    <div class="food-desc">Where else would you go after a round? Fantastic name, great Guinness, live sport on multiple screens, live bands after 10pm and a proper pub atmosphere. Reviewers specifically mention it as the go-to for live football and "good banter". Open until 3am if the night runs long.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.3 · 634 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 10am – 3am</span>
+                        <span class="food-tag tag-price">📺 Masters · National · Football</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">☘️</div>
+                <div class="food-body">
+                    <div class="food-type">Irish Pub · Marina</div>
+                    <div class="food-name">O'Shea's Irish Pub</div>
+                    <div class="food-desc">A proper Irish pub right in the marina — staff have been known to move TVs outside so groups can watch football on the terrace. Live music regularly, great Guinness and a lively atmosphere once the evening kicks off. A natural spot for the Grand National on Saturday.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.4 · 642 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 10am – 2am</span>
+                        <span class="food-tag tag-price">📺 National · Football</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍔</div>
+                <div class="food-body">
+                    <div class="food-type">Sports Bar · Food</div>
+                    <div class="food-name">Frankie's</div>
+                    <div class="food-desc">Plenty of TVs showing golf, football and other sport, plus genuinely good food — chicken wings, club sandwiches, burgers and well-kept Guinness. One reviewer specifically mentions watching golf here. Happy hour on beer and wine makes it a solid afternoon spot between rounds.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.7 · 242 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 10am – 2am</span>
+                        <span class="food-tag tag-price">📺 Masters · National · Football</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍷</div>
+                <div class="food-body">
+                    <div class="food-type">Portuguese Bar · Tapas</div>
+                    <div class="food-name">Tasca da Vila</div>
+                    <div class="food-desc">The authentic Portuguese option — a cosy tapas bar with a wine list personally curated by the owner as a "map of Portugal in wines". Flaming chorizo, garlic prawns, sardine pâté and goat's cheese. Perfect for a quieter night away from the sports bars.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.3 · 234 reviews</span>
+                        <span class="food-tag tag-hours">Closed Sun · Dinner from 6pm</span>
+                        <span class="food-tag tag-price">🇵🇹 Portuguese Bar</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="divider" style="margin:40px 0 0;"></div>
+
+<!-- FOOD -->
+<div id="food" class="container">
+    <div class="section" style="padding-bottom: 56px;">
+        <div class="section-label">Where to Eat</div>
+        <h2>Food & Drink</h2>
+
+        <div class="cards">
+
+            <div class="food-card">
+                <div class="food-emoji">🍲</div>
+                <div class="food-body">
+                    <div class="food-type">Traditional Portuguese</div>
+                    <div class="food-name">Vila com Tradição</div>
+                    <div class="food-desc">A genuine hidden gem. Homemade traditional food, terrace seating with live background music, friendly family service and outstanding value — especially the set lunch menu.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.8 · 448 reviews</span>
+                        <span class="food-tag tag-hours">Closed Mon · Dinner from 6pm</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🐟</div>
+                <div class="food-body">
+                    <div class="food-type">Seafood · Portuguese</div>
+                    <div class="food-name">Restaurante Elcristo</div>
+                    <div class="food-desc">Pick your fish fresh, have it weighed and cooked to your liking. Consistently praised for the sea bass, prawns and squid. One of the most popular spots in the area with over 1,000 reviews.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.8 · 1,066 reviews</span>
+                        <span class="food-tag tag-hours">Closed Mon · Sun lunch only</span>
+                        <span class="food-tag tag-price">💶 Mid-range</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍝</div>
+                <div class="food-body">
+                    <div class="food-type">Italian</div>
+                    <div class="food-name">Ristorante Il Trio</div>
+                    <div class="food-desc">Hugely popular Italian tucked just behind the marina. Fresh homemade pasta, generous portions and a great outdoor terrace atmosphere. Book ahead — it fills up fast.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.6 · 558 reviews</span>
+                        <span class="food-tag tag-hours">Closed Sun · Dinner from 6:45pm</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🥩</div>
+                <div class="food-body">
+                    <div class="food-type">Portuguese · Steaks & Seafood</div>
+                    <div class="food-name">Casa do Pescador</div>
+                    <div class="food-desc">Surf & turf in a beautiful fairy-lit courtyard. One of the few traditional spots to serve every day of the week, from 4pm. Great for a relaxed evening after golf.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.4 · 529 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · From 4pm</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🦞</div>
+                <div class="food-body">
+                    <div class="food-type">Seafood · Marina</div>
+                    <div class="food-name">Restaurante O Marisco</div>
+                    <div class="food-desc">Right on the marina strip — great for people-watching over sardines or the mixed fish platter for two. Can get busy at lunch so arrive early or expect a wait.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.5 · 690 reviews</span>
+                        <span class="food-tag tag-hours">Closed Sun · Open from noon</span>
+                        <span class="food-tag tag-price">💶 Mid-range</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍕</div>
+                <div class="food-body">
+                    <div class="food-type">Italian · Casual</div>
+                    <div class="food-name">Taverna</div>
+                    <div class="food-desc">A casual neighbourhood Italian open every day for lunch and dinner. Fresh pasta, wood-fired pizza and even curry on the menu. A solid no-fuss option when you don't want to travel far.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.7 · 192 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · Noon to 10:30pm</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍷</div>
+                <div class="food-body">
+                    <div class="food-type">Traditional Portuguese · Hidden Gem</div>
+                    <div class="food-name">Splendido Restaurant & Bar</div>
+                    <div class="food-desc">Warmly reviewed family-run spot with classic Portuguese home cooking — grilled cod, steak, stuffed mushrooms. You'll need Google Maps to find it but that's half the charm.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.9 · 137 reviews</span>
+                        <span class="food-tag tag-hours">Closed Sun · Dinner from 6pm</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Marina divider -->
+        <div style="display:flex;align-items:center;gap:12px;margin:32px 0 24px;">
+            <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(13,59,30,0.18));"></div>
+            <span style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);white-space:nowrap;">⚓ Around the Marina</span>
+            <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(13,59,30,0.18),transparent);"></div>
+        </div>
+
+        <div class="cards">
+
+            <div class="food-card">
+                <div class="food-emoji">🥩</div>
+                <div class="food-body">
+                    <div class="food-type">Grill & Seafood · Marina</div>
+                    <div class="food-name">Haven</div>
+                    <div class="food-desc">A standout on the marina strip. Hanging kebabs, perfectly cooked steaks and excellent stuffed mushrooms. Warm atmosphere and staff who greet you by name from your reservation. One of the best all-rounders at the marina.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.6 · 482 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · From 3pm</span>
+                        <span class="food-tag tag-price">💶 Mid-range</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🌊</div>
+                <div class="food-body">
+                    <div class="food-type">Mediterranean · Fine Dining</div>
+                    <div class="food-name">Restaurante Akvavit</div>
+                    <div class="food-desc">Stunning marina views and a menu that impresses — think lamb shank, seafood stew and buttery steak. Praised as one of the top meals people have ever had. Lunchtime and dinner service with beautiful presentation throughout.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.6 · 988 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · Lunch & Dinner</span>
+                        <span class="food-tag tag-price">💶 Mid–premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🇧🇷</div>
+                <div class="food-body">
+                    <div class="food-type">Brazilian · Rodizio BBQ</div>
+                    <div class="food-name">Retinto – Rodízio & Wine</div>
+                    <div class="food-desc">The go-to for a big group night out. Unlimited Brazilian rodizio with all the trimmings — jumbo tiger prawns, Argentine rump steak, hot stone options and great wine. Multiple golf groups have raved about coming back twice in one trip.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.6 · 1,000 reviews</span>
+                        <span class="food-tag tag-hours">Closed Sun · Dinner from 6:30pm</span>
+                        <span class="food-tag tag-price">💶 Mid-range</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍽️</div>
+                <div class="food-body">
+                    <div class="food-type">International · Upscale Marina</div>
+                    <div class="food-name">News</div>
+                    <div class="food-desc">The most reviewed restaurant on the marina. Ceviche, fillet steaks, creative cocktails and staff that go above and beyond. Pricier than most, but widely considered worth every cent. Great for a special evening with a marina view.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.5 · 4,359 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 9am – 2am</span>
+                        <span class="food-tag tag-price">💶 Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍝</div>
+                <div class="food-body">
+                    <div class="food-type">Italian · Marina Front</div>
+                    <div class="food-name">Il Lamparo</div>
+                    <div class="food-desc">Right on the marina with lovely harbour views. Tagliatelle with salmon and prawns, good steaks and generous portions. Great for large groups — they seated 14 without a booking. Open from 10am every day.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.4 · 960 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 10am – Midnight</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🌮</div>
+                <div class="food-body">
+                    <div class="food-type">Mexican · Cocktail Bar</div>
+                    <div class="food-name">El Patron</div>
+                    <div class="food-desc">The only Mexican on the marina, and it delivers — fajitas, burritos, tacos and jalapeño starters with a DJ and a great outdoor marina terrace. Lively atmosphere, very late closing and a good laugh for a group night. Watch the spice ratings!</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.2 · 516 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · 4:30pm – 2am</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🔥</div>
+                <div class="food-body">
+                    <div class="food-type">Steakhouse · Angus Grill</div>
+                    <div class="food-name">Don Toro – Angus Grill</div>
+                    <div class="food-desc">Regularly called one of the best steaks in all of Portugal. Cosy spot near the marina entrance with an esplanade — rack of ribs at €17, burgers at €15. Described by one reviewer as a five-star restaurant with three-star prices. Book ahead.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.5 · 371 reviews</span>
+                        <span class="food-tag tag-hours">Closed Tue · Dinner from 6pm</span>
+                        <span class="food-tag tag-price">💶 Budget-friendly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🍣</div>
+                <div class="food-body">
+                    <div class="food-type">Asian · All-You-Can-Eat Sushi</div>
+                    <div class="food-name">GoldenMarina Asian Food</div>
+                    <div class="food-desc">An all-you-can-eat Chinese and sushi restaurant that massively over-delivers on quality. Fresh rolls, hot dishes and a kids' play zone — order by writing dish numbers on a sticky note so the food never stops. Incredibly popular and great value.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.6 · 1,221 reviews</span>
+                        <span class="food-tag tag-hours">Open most days · Lunch & Dinner</span>
+                        <span class="food-tag tag-price">💶 Great value</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🥢</div>
+                <div class="food-body">
+                    <div class="food-type">Chinese · Marina View</div>
+                    <div class="food-name">Zu Yi</div>
+                    <div class="food-desc">Crispy duck with pancakes, spicy prawns, char pork — all excellent quality with stunning marina views from the table. A three-course meal with drinks comes in around €22 per person. One of the best value options at the marina end.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.4 · 755 reviews</span>
+                        <span class="food-tag tag-hours">Open 7 days · Lunch & Dinner</span>
+                        <span class="food-tag tag-price">💶 Great value</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-emoji">🐠</div>
+                <div class="food-body">
+                    <div class="food-type">Seafood · Portuguese Authentic</div>
+                    <div class="food-name">The Fisherman's Shack</div>
+                    <div class="food-desc">Fresh-caught fish filleted at the table. Grilled sardines, tuna steak, swordfish and cataplana — all praised for their quality. A proper traditional seafood experience rather than a marina tourist trap. Book ahead, it fills up on busy nights.</div>
+                    <div class="food-meta">
+                        <span class="food-tag tag-stars">⭐ 4.4 · 476 reviews</span>
+                        <span class="food-tag tag-hours">Closed Sun · Dinner from 6:30pm</span>
+                        <span class="food-tag tag-price">💶 Mid-range</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</main>
+
+<div class="divider" style="margin:0;"></div>
+
+<!-- GOLF COURSES -->
+<div id="courses" class="container">
+    <div class="section" style="padding-bottom:56px;">
+        <div class="section-label">Know Before You Play</div>
+        <h2>The Golf Courses</h2>
+
+        <!-- Millennium -->
+        <div class="card" style="margin-bottom:20px;">
+            <div class="card-header">
+                <div class="card-icon" style="background:#e8f5ee;font-size:1.1rem;">🏌️</div>
+                <div>
+                    <h3>Millennium</h3>
+                    <div style="font-size:0.75rem;color:var(--gold);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">9 Apr (Twilight · 15:30) &amp; 12 Apr (18 holes · 14:00)</div>
+                </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Par 72</span>
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">6,176m</span>
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Slope 120</span>
+                <span style="background:var(--gold-light);color:#7c4a00;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Architect: Martin Hawtree</span>
+                <span style="background:var(--gold-light);color:#7c4a00;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Opened: 2000</span>
+            </div>
+            <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">The most accessible of your three courses and the most popular in the Vilamoura portfolio. The front nine are largely open parkland before holes 3–7 wind through pine trees where the fairways narrow and accuracy becomes more important. The closing stretch around holes 17 and 18 features two lakes that demand a smart, patient approach — trying to be a hero here will cost you shots.</p>
+            <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">You're playing it twice — twilight on arrival day (a great warm-up) and again for the final full round on 12 April. Watch out for the par-3 6th, a 165-yard carry with water guarding the left of the green and a bunker to the right. The seventh is a twisting par-4 that catches the unwary. Greens have been in superb condition in recent months.</p>
+            <div style="background:var(--green-light);border-radius:10px;padding:12px 14px;font-size:0.82rem;color:var(--green-deep);font-weight:500;">
+                💡 <strong>Tip:</strong> Simple strategy always wins here — play for the middle of greens and avoid the water on the closing holes. Shared clubhouse with Laguna makes for a good post-round pint.
+            </div>
+        </div>
+
+        <!-- Laguna -->
+        <div class="card" style="margin-bottom:20px;">
+            <div class="card-header">
+                <div class="card-icon" style="background:#e0f0ff;font-size:1.1rem;">🌊</div>
+                <div>
+                    <h3>Laguna</h3>
+                    <div style="font-size:0.75rem;color:var(--gold);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">10 Apr · 18 holes · 10:10</div>
+                </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Par 72</span>
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">6,121m</span>
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Slope 129</span>
+                <span style="background:var(--gold-light);color:#7c4a00;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Architect: Joseph Lee</span>
+                <span style="background:var(--gold-light);color:#7c4a00;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Opened: 1990</span>
+            </div>
+            <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">Laguna is the wildcard of the week — the most unusual course in Vilamoura. Designed by American architect Joseph Lee over flat, low-lying coastal terrain, it feels completely unlike its neighbours. With almost no trees, wide open fairways and water in play on 11 of 18 holes, it has a proper links character. Some have likened it to playing in Florida. The 79 bunkers are strategically placed throughout and the wind — when it blows — turns a manageable card into something quite demanding.</p>
+            <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">The front nine are shorter but trickier than they look. The back nine opens up and the driver comes out. The signature hole is the 12th — a par 3 over a lake with the Vilamoura skyline as your backdrop. It's a great selfie hole but a tough par. The 15th par-5 is one of the most talked-about on the course, with water seemingly everywhere.</p>
+            <div style="background:#e0f0ff;border-radius:10px;padding:12px 14px;font-size:0.82rem;color:#1a3a6e;font-weight:500;">
+                💡 <strong>Tip:</strong> Pack extra balls — the water comes into play more than you expect. Wide tee shots are generally safe, but approach shots must be precise. Don't try to carry corners on the doglegs unless you're absolutely sure.
+            </div>
+        </div>
+
+        <!-- Pinhal -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background:#fef3e8;font-size:1.1rem;">🌲</div>
+                <div>
+                    <h3>Pinhal</h3>
+                    <div style="font-size:0.75rem;color:var(--gold);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">11 Apr · 18 holes · 10:10</div>
+                </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Par 72</span>
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">6,353m</span>
+                <span style="background:var(--green-light);color:var(--green-deep);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Slope 140</span>
+                <span style="background:var(--gold-light);color:#7c4a00;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:10px;">Pennink (1976) · Trent Jones Sr. (1985)</span>
+            </div>
+            <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">Pinhal is the oldest and, arguably, the most characterful of the three courses this week. Originally designed by Frank Pennink in 1976 and significantly revised by the legendary Robert Trent Jones Sr. in 1985 — one of only a select few European courses to bear the stamp of both architects. The course meanders through undulating parkland lined on almost every hole by canopies of mature umbrella and Atlantic pines. With the highest slope rating of the group (140), it demands accuracy from the tee above all else.</p>
+            <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px;">The front nine weaves through dense pine corridors — errant drives will be found but getting back to the fairway is the challenge. The back nine opens up with some fabulous sea views from the elevated sections, rewarding the brave golfer who has managed their card through the tighter front half. The par-3s here are widely considered the best in Vilamoura. The 14th and 15th are particular highlights.</p>
+            <div style="background:#fef3e8;border-radius:10px;padding:12px 14px;font-size:0.82rem;color:#7c3a00;font-weight:500;">
+                💡 <strong>Tip:</strong> This is the toughest test of the week — accuracy off the tee is everything. Don't go chasing distance through the trees. Play conservatively through the front nine, attack on the back. The clubhouse has one of the best views in Vilamoura and great food — worth sitting on the veranda after.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <span>Vilamoura Golf Trip 2026</span> · All details subject to change
+</footer>
+
+<script>
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                navLinks.forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
